@@ -5,6 +5,8 @@ const app = express();
 app.use(express.json());
 const PORT = 3000;
 const MONGO_URI= process.env.MONGO_URI;
+const routes = require('./routes');
+app.use(routes);
 
 
 mongoose.connect(MONGO_URI).then(()=>console.log("Connected to database.")).catch((err)=>console.log('Falied: ', err));
