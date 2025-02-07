@@ -1,0 +1,17 @@
+meta {
+  name: put items
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:3000/items/67a59cda4101a1929d52c7a3
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Ice Cream"
+  }
+}
