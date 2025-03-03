@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Singup=()=>{
+const Signup=()=>{
     const [formData, setFormData]= useState({name:"", breed:"", age:"", caption:""});
     const [users, setUsers]=useState([]);
 
@@ -44,4 +44,4 @@ return(
 )
 };
 
-export default Singup;
+export default Signup;
