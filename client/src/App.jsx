@@ -1,7 +1,9 @@
 // client/src/App.jsx
 import React, { useEffect, useState } from 'react';
+import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import './App.css';
 import DogCard from './components/DogCard';
+import Signup from './components/pages/Signup';
 
 
 function App() {
@@ -18,7 +20,16 @@ function App() {
   },[]);
   
   return (
-    <div className="app">
+    <Router>
+      <nav className='navbar'>
+        <Link to="/">Home</Link>
+        <Link to="/signup">Signup</Link>
+      </nav>
+
+      <Routes>
+        <Route
+        path="/" element={
+<div className="app">
       <header className="hero">
         <h1>🐾WhatTheWoof</h1>
         <p>Funny dogs. Punny captions. Endless smiles.</p>
@@ -33,6 +44,11 @@ function App() {
         )}
       </section>
     </div>
+        }/>
+        <Route path="/signup" element={<Signup/>}/>
+      </Routes>
+      </Router>
+    
   );
 }
 
