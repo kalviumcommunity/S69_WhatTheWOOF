@@ -51,28 +51,28 @@ const UpdateDog = () => {
           name="name"
           value={formData.name}
           onChange={handleChange}
-          placeholder="Name"
+          placeholder="Name of your Dog"
         />
         <input
           type="text"
           name="breed"
           value={formData.breed}
           onChange={handleChange}
-          placeholder="Breed"
+          placeholder="Breed of your Dog"
         />
         <input
           type="number"
           name="age"
           value={formData.age}
           onChange={handleChange}
-          placeholder="Age"
+          placeholder="Age of your Dog"
         />
         <input
           type="text"
           name="caption"
           value={formData.caption}
           onChange={handleChange}
-          placeholder="Caption"
+          placeholder="Caption of your Dog"
         />
         <button type="submit">Update</button>
       </form>
