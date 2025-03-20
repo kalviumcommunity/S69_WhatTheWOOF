@@ -2,9 +2,10 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
-import DogCard from './components/DogCard';
+import DogCard from './components/pages/DogCard';
 import Signup from './components/pages/Signup';
 import UpdateDog from './components/pages/UpdateDog'; 
+import Login from './components/pages/Login';
 
 function App() {
   const [dogs, setDogs] = useState([]);
@@ -30,6 +31,7 @@ function App() {
       <nav className="navbar">
         <Link to="/">Home</Link>
         <Link to="/signup">Signup</Link>
+        <Link to="/login">Login</Link>
       </nav>
 
       <Routes>
@@ -56,6 +58,7 @@ function App() {
           }
         />
         <Route path="/signup" element={<Signup />} />
+        <Route path='/login' element={<Login/>}/>
         <Route path="/update/:id" element={<UpdateDog />} /> {/* Add route for update page */}
       </Routes>
     </Router>

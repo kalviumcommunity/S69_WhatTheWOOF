@@ -5,11 +5,13 @@ const app = express();
 app.use(express.json());
 const PORT = 3000;
 const MONGO_URI= process.env.MONGO_URI;
-const routes = require('./routes');
+const routes = require('./routes/routes');
 const cors=require('cors');
+const authRoutes=require("./routes/auth")
 app.use(routes);
 app.use(cors());
 app.use('/api',routes);
+app.use('/api',authRoutes);
 
 
 app.use(cors({
