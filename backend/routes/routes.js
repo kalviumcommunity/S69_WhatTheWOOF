@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Item = require('./Model/items')
+const Item = require('../Model/items')
 
 // ✅ GET All Items
 router.get('/items', (req, res) => {
@@ -78,5 +78,6 @@ router.delete('/items/:id', (req, res) => {
             res.status(500).json({ message: 'Error deleting item', error });
         });
 });
+
 
 module.exports = router;
