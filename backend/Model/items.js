@@ -21,5 +21,14 @@ UserSchema.pre("save", async function (next) {
 UserSchema.methods.comparePassword = function (password) {
   return bcrypt.compare(password, this.password);
 };
+const DogSchema = new mongoose.Schema({
+  name: String,
+  breed: String,
+  age: Number,
+  caption: String,
+  created_by: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }, // Add this
+});
+
+module.exports = mongoose.model('Dog', DogSchema);
 
 module.exports = mongoose.model("User", UserSchema);

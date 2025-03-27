@@ -23,22 +23,35 @@ router.post("/login", async (req, res) => {
   }
 });
 
-router.post("/signup", async (req, res) => {
+router.post('/api/signup', async (req, res) => {
+  const { name, email, password } = req.body;
+  
+  if (!name || !email || !password) {
+    return res.status(400).json({ error: "All fields are required" });
+  }
+
   try {
-    const { name, breed, age, caption, email, password } = req.body;
+    // Hash the password before saving
+    const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Check if user already exists
-    const existingUser = await User.findOne({ email });
-    if (existingUser) {
-      return res.status(400).json({ error: "User already exists" });
-    }
-
-    const newUser = new User({ name, breed, age, caption, email, password });
+    const newUser = new User({ name, email, password: hashedPassword });
     await newUser.save();
 
-    res.status(201).json({ message: "User created successfully" });
-  } catch (error) {
-    res.status(500).json({ error: "Signup failed" });
+    res.status(201).json({ message: "User created successfully!" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+
+router.post('/api/items', async (req, res) => {
+  try {
+    const { name, breed, age, caption, created_by } = req.body;
+    const newDog = new Dog({ name, breed, age, caption, created_by });
+    await newDog.save();
+    res.status(201).json(newDog);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 });
 
