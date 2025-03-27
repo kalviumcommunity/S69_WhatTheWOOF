@@ -5,7 +5,18 @@ meta {
 }
 
 post {
-  url: 
-  body: none
+  url: http://localhost:3000/api/signup
+  body: json
   auth: none
+}
+
+body:json {
+  {
+    "name":"champ",
+    "breed":"golden retiever",
+    "age":"0.5",
+    "caption":"I am a dream dog",
+    "email":"san.pro404912@gmail.com",
+    "password":"Sanya@2006"
+  }
 }
