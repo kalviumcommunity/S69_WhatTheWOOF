@@ -43,9 +43,11 @@ function App() {
   return (
     <Router>
       <nav className="navbar">
-        <Link to="/">Home</Link>
-        <Link to="/signup">Signup</Link>
-        <Link to="/login">Login</Link>
+        <div className="navbar-container">
+          <Link to="/">Home</Link>
+          <Link to="/signup">Signup</Link>
+          <Link to="/login">Login</Link>
+        </div>
       </nav>
 
       <Routes>
@@ -54,9 +56,9 @@ function App() {
           element={
             <div className="app">
               <header className="hero">
-                <h1>🐾WhatTheWoof</h1>
+                <h1>🐾 WhatTheWoof</h1>
                 <p>Funny dogs. Punny captions. Endless smiles.</p>
-                <button>Explore Gallery</button>
+                <button className="cta-button">Explore Gallery</button>
               </header>
 
               {/* User Selection Dropdown */}
@@ -75,11 +77,13 @@ function App() {
               {/* Dog Cards Section */}
               <section className="dog-card-section">
                 {dogs.length > 0 ? (
-                  dogs.map((dog) => (
-                    <DogCard key={dog._id} {...dog} onDelete={handleDelete} />
-                  ))
+                  <div className="dog-card-grid">
+                    {dogs.map((dog) => (
+                      <DogCard key={dog._id} {...dog} onDelete={handleDelete} />
+                    ))}
+                  </div>
                 ) : (
-                  <p>No dogs found for this user.</p>
+                  <p className="no-dogs-message">No dogs found for this user.</p>
                 )}
               </section>
             </div>
@@ -92,5 +96,4 @@ function App() {
     </Router>
   );
 }
-
 export default App;
