@@ -24,7 +24,7 @@ const Login = () => {
       navigate("/")
       localStorage.setItem("token", data.token); // Store token for authentication
     } else {
-      alert("Login failed. Try again.");
+      alert("Login failed. Please try again.");
     }
   };
 

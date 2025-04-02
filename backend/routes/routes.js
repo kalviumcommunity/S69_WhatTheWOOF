@@ -6,7 +6,7 @@ const Item = require('../Model/items')
 router.get('/items', (req, res) => {
     Item.find()
         .then((items) => {
-            res.status(200).json({ message: 'Items received successfully.', items });
+            res.status(200).json({ message: 'Items received successfully!', items });
         })
         .catch((err) => {
             res.status(500).json({ message: 'Error occurred', error: err });

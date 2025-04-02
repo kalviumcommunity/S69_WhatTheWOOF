@@ -20,7 +20,7 @@ app.use(cors({
   allowedHeaders: ['Content-Type']
 }));
 
-mongoose.connect(MONGO_URI).then(()=>console.log("Connected to database.")).catch((err)=>console.log('Falied: ', err));
+mongoose.connect(MONGO_URI).then(()=>console.log("Connected to database")).catch((err)=>console.log('Falied: ', err));
 
 
 app.get('/', (req, res) => {

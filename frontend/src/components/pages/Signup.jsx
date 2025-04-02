@@ -26,7 +26,7 @@ const Signup = () => {
     });
 
     if (res.ok) {
-      alert("Signup successful!");
+      alert("Signup is successful!");
       navigate("/")
       setFormData({ name: "", breed: "", age: "", caption: "", email: "", password: "" });
     } else {
