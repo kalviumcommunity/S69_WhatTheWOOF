@@ -1,6 +1,6 @@
 const express=require('express');
 const router=express.Router();
-const Item=require('./Model/items');
+const Item=require('../Model/items');
 
 // GET
 
